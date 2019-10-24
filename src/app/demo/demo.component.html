@@ -1,0 +1,30 @@
+<h2><i class="fa fa-automobile"></i>  simulateur</h2>
+ <form [formGroup]="simulateForm" (ngSubmit)="onSubmit()">
+                    <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="dpEnergie">Energie</label>
+                                <select class="custom-select" id="dpEnergie" formControlName="dpEnergie">
+                                    <option value="" disabled >Choisir</option>
+                                    <option value="ESSENCE">Essence</option>
+                                    <option value="DIESEL">Diesel</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    <sup>*</sup> champ obligatoire
+                                </div>
+                            </div>   
+                            <div class="form-group col-md-4">
+                                <label for="inputPuissance">Puissance Fiscale</label>
+                                <input type="text"class="form-control" formControlName="inputPuissance" id="inputPuissance" required/>
+                                <div class="invalid-feedback" *ngIf="inputPuissance.errors">
+                                    <sup>*</sup> champ obligatoire
+                                </div>
+                            </div>                         
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputResultat">Resultats (R.C)</label>
+                            <input type="text"class="form-control" readonly="readonly" formControlName="inputResultat" id="inputResultat"/>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="!simulateForm.valid">Simuler</button>
+                </form>
